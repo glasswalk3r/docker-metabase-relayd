@@ -21,4 +21,4 @@ Then copy to the subdirectory metabase your `metabase_id.json` file. The metabas
 
 Although not required, you can edit the `relayd` configuration file to match your needs. Refer to the metabase-relayd documentation for details.
 
-Type `docker-compose up` in a shell and your go to go!
+Type `docker-compose up` in a shell and you're ready to go!
