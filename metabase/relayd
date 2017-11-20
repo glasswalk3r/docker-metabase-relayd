@@ -1,0 +1,6 @@
+port=8080
+idfile=/home/runner/.metabase/metabase_id.json
+dbfile=/home/runner/.metabase/relay.db
+url=http://metabase.cpantesters.org/api/v1/
+debug=1
+multiple=1
