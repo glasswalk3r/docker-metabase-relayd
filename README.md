@@ -15,7 +15,7 @@ All files on this project are released under GNU GPL version 3.
 
 ## How to use it
 
-By now, the respective Docker image is not available iny repository, so you will need to `git clone` this repository and build the image yourself.
+By now, the respective Docker image is not available any repository, so you will need to `git clone` this repository and build the image yourself.
 
 Then copy to the subdirectory metabase your `metabase_id.json` file. The metabase directory is mounted automatically by the `docker-compose.yml` file so you can edit the metabase-relayd configuration without having to change anything on the container or image.
 
