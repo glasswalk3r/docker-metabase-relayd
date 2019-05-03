@@ -53,15 +53,18 @@ metabase-relayd             0.2                 aabb370cc42f        2 minutes ag
 The `metabase-relayd` will read it's configurations from a mounted volume,
 which will allow you to persists the database on whatever location you prefer.
 
+By default, time zone is configured to "UTC".
+
 ## How to use it
 
 First you will need to configure `metabase-relayd`. Please refer to it's
 documentation about how to do it. The `docker-compose.yml` file expects that
 you will leave the configuration directory at `$HOME/.metabase` directory.
 
-The easiest way is to `docker pull` the image from the [Docker hub](https://hub.docker.com/r/alceu/metabase-relayd). You probably won't need
-to do anything else but change the timezone (you can change that on top of the
-image using a Dockerfile and `FROM alceu/metabase-relayd`).
+The easiest way is to `docker pull` the image from the
+[Docker hub](https://hub.docker.com/r/alceu/metabase-relayd). You probably
+won't need to do anything else but change the timezone (you can change that on
+top of the image using a Dockerfile and `FROM alceu/metabase-relayd`).
 
 If you want to build it yourself (one good reason for that is to change the
 timezone, see the `TZ` declaration in the `docker-compose.yml` file) will need
