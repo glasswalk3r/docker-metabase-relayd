@@ -1,10 +1,12 @@
-version: '2'
+version: '3'
 services:
-    metabase-relayd:
-       build: .
-       image: metabase-relayd:0.1
-       ports:
-           - "9090:8080"
-       volumes:
-           - ./metabase:/home/runner/.metabase
-       container_name: metabase-relayd
+  metabase-relayd:
+    build: .
+    image: metabase-relayd:0.2
+    ports:
+      - "9090:8080"
+    volumes:
+      - "${HOME}/.metabase:/home/runner/.metabase"
+    container_name: metabase-relayd
+    environment:
+      TZ: America/Sao_Paulo

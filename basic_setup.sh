@@ -1,14 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-# housekeeping
-apk update
-apk upgrade
-# alpine curl and wget aren't fully compatible, so we install them
-# the rest are Perl modules we want to take advantage of having already packed
-# last three are required to compile modules that use XS
-apk add curl bash perl make wget perl-net-ssleay perl-moose perl-io-tty perl-dbi perl-data-guid perl-sub-identify perl-params-validate gcc perl-dev musl-dev
-# housekeeping
-rm -rf /var/cache/apk/*
-# adding user and group to run metabase-relayd
+apt-get update
+apt-get upgrade -y
+ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+echo $TZ > /etc/timezone
+apt-get install -y bzip2
+apt-get autoremove -y
+apt-get clean -y
 addgroup metabase
-adduser -G metabase -h /home/runner -D -s /bin/bash runner
+adduser --ingroup metabase --home /home/runner --shell /bin/bash \
+  --disabled-password --gecos '' runner
