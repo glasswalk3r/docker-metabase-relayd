@@ -11,14 +11,14 @@ RUN /home/runner/install_relayd.sh
 
 FROM $ROOT_IMAGE
 ARG IMAGE_VERSION
-LABEL maintainer="glasswalk3r@yahoo.com.br" version=$IMAGE_VERSION name=metabase-relayd
+LABEL maintainer="glasswalk3r@yahoo.com.br" version="${IMAGE_VERSION}" name="metabase-relayd"
 COPY basic_setup.sh run_relayd.sh MyConfig.pm /tmp/
 COPY --from=builder /home/runner/myperl.tar.bz2 /tmp
 ENV TZ=UTC
 RUN /tmp/basic_setup.sh && rm -f /tmp/basic_setup.sh && chown runner /tmp/myperl.tar.bz2
 WORKDIR /home/runner
 USER runner
-RUN whoami && pwd && perl -v && cp /tmp/run_relayd.sh ~/ && \
+RUN cp /tmp/run_relayd.sh ~/ && \
     chmod 500 ~/run_relayd.sh && tar -C /home/runner -xjf /tmp/myperl.tar.bz2 \
     && rm -f /tmp/myperl.tar.bz2
 CMD ["/bin/bash", "-cl", "/home/runner/run_relayd.sh"]
