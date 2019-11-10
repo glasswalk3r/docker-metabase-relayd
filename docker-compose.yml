@@ -2,11 +2,14 @@ version: '3'
 services:
   metabase-relayd:
     build: .
-    image: metabase-relayd:0.2
+    args:
+      ROOT_IMAGE: perl:5.30-slim
+      IMAGE_VERSION: 0.0.4
+    image: alceu/metabase-relayd:0.0.4
     ports:
       - "9090:8080"
     volumes:
-      - "${HOME}/.metabase:/home/runner/.metabase"
+      - "/home/alceu/.metabase:/home/runner/.metabase"
     container_name: metabase-relayd
     environment:
       TZ: UTC
