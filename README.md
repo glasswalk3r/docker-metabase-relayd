@@ -11,10 +11,12 @@ a response from the metabase server.
 
 This project is about using a Docker container to make it easier to install and
 run your own metabase-relayd with very little configuration. It uses a
-non-root, privile reduced user with
+non-root, privilege reduced user with
 [local::lib](http://search.cpan.org/~haarg/local-lib-2.000024/lib/local/lib.pm)
-and the standard "slim" (no ithread enabled) perl provided by the
-[official Perl Docker images](https://hub.docker.com/_/perl).
+and the standard "slim" (no ithread enabled) `perl` provided by the
+[official Perl Docker images](https://hub.docker.com/_/perl). In the case you
+didn't know, Perl is known to
+[run faster](https://www.perlmonks.org/?node_id=868687) with ithreads support.
 
 metabase-relayd details can be found
 [here](https://metacpan.org/pod/distribution/metabase-relayd/bin/metabase-relayd).
@@ -26,8 +28,8 @@ All files on this project are released under GNU GPL version 3.
 
 ## Why metabase-relayd on Docker?
 
-Because installing it mannually is time consuming: lot's of dependencies (that
-are generally not included as pre-built packages on Linux), which have to be
+Because installing it manually is time consuming: lot's of dependencies (that
+are generally not included as prebuilt packages on Linux), which have to be
 downloaded, compiled, tested and installed.
 
 Also, most probably the Docker image will have Perl modules with newer versions
