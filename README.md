@@ -53,7 +53,7 @@ metabase-relayd             0.2                 aabb370cc42f        2 minutes ag
 The `metabase-relayd` will read it's configurations from a mounted volume,
 which will allow you to persists the database on whatever location you prefer.
 
-By default, time zone is configured to "UTC".
+By default, time zone is configured to UTC.
 
 ## How to use it
 
@@ -76,6 +76,40 @@ so you can edit the `metabase-relayd` configuration without having to change
 anything on the container or image.
 
 Although not required, you can edit the `relayd` configuration file to match
-your needs. Refer to the `metabase-relayd` documentation for details.
+your needs. Refer to the `metabase-relayd` documentation for details. But,
+due the [known issues](#know issues), you probably will be better by using
+this configuration sample:
+
+```
+address=0.0.0.0
+port=8080
+idfile=/home/runner/.metabase/metabase_id.json
+dbfile=/home/runner/.metabase/relay.db
+url=http://metabase.cpantesters.org/api/v1/
+debug=1
+multiple=1
+```
 
 Type `docker-compose up` in a shell and you're ready to go!
+
+## Known issues
+
+At this moment (2022-02-17), metabase-relayd project is not in good shape.
+
+One of it's Perl modules dependencies is
+[POE::Component::SSLify](https://metacpan.org/pod/POE::Component::SSLify), which
+is not being updated for a long time and it is broken regarding newer versions
+of TLS.
+
+That said, metabase-relayd will not support TLS when connecting to
+metabase.cpantesters.org, so be sure to configure the `url` configuration
+parameter to use `http` instead of `https`.
+
+This is not the ideal, but it will work. Although the data transferred is
+basically public, the issue lies in not being sure you are transferring test
+data to the right place.
+
+## References
+
+- [metabase-relayd](https://metacpan.org/pod/distribution/metabase-relayd/bin/metabase-relayd)
+- [Blog post about it](blogs.perl.org/users/bingos/2010/07/cpan-testers-20-and-the-metabase-relayd.html)
