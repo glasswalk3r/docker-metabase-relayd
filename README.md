@@ -16,7 +16,8 @@ non-root, privilege reduced user with
 and the standard "slim" (no ithread enabled) `perl` provided by the
 [official Perl Docker images](https://hub.docker.com/_/perl). In the case you
 didn't know, Perl is known to
-[run faster](https://www.perlmonks.org/?node_id=868687) with ithreads support.
+[run faster](https://www.perlmonks.org/?node_id=868687) without ithreads
+support.
 
 metabase-relayd details can be found
 [here](https://metacpan.org/pod/distribution/metabase-relayd/bin/metabase-relayd).
@@ -38,8 +39,9 @@ recent images).
 
 ## How it is done
 
-The Dockerfile for this project uses [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) in
-order to configure [locallib](https://metacpan.org/pod/local::lib), install
+The Dockerfile for this project uses
+[multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/)
+in order to configure [locallib](https://metacpan.org/pod/local::lib), install
 `metabase-relayd` with all it's requirements and then move everything to
 another Docker image that doesn't have any requirements of whatever is required
 to install Perl modules (C compiler, make, etc), making the `metabase-relayd`
