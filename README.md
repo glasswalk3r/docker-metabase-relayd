@@ -81,7 +81,7 @@ anything on the container or image.
 
 Although not required, you can edit the `relayd` configuration file to match
 your needs. Refer to the `metabase-relayd` documentation for details. But,
-due the [known issues](#know-issues), you probably will be better by using
+due the [known issues](#known-issues), you probably will be better by using
 this configuration sample:
 
 ```
