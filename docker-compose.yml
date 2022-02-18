@@ -5,9 +5,9 @@ services:
     build:
       context: .
       args:
-        ROOT_IMAGE: perl:5.30-slim
-        IMAGE_VERSION: 0.0.4
-    image: alceu/metabase-relayd:0.0.4
+        ROOT_IMAGE: perl:5.32.1-slim-bullseye
+        IMAGE_VERSION: 0.0.5
+    image: alceu/metabase-relayd:0.0.5
     ports:
       - "9090:8080"
     volumes:
