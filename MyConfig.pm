@@ -12,11 +12,12 @@ $CPAN::Config = {
   'commandnumber_in_prompt' => q[1],
   'connect_to_internet_ok' => q[0],
   'cpan_home' => q[/home/runner/.cpan],
+  'curl' => q[/usr/bin/curl],
   'ftp_passive' => q[1],
   'ftp_proxy' => q[],
   'getcwd' => q[cwd],
   'gpg' => q[],
-  'gzip' => q[/usr/bin/gzip],
+  'gzip' => q[/bin/gzip],
   'halt_on_failure' => q[0],
   'histfile' => q[/home/runner/.cpan/histfile],
   'histsize' => q[100],
@@ -63,8 +64,7 @@ $CPAN::Config = {
   'version_timeout' => q[15],
   'wget' => q[/usr/bin/wget],
   'yaml_load_code' => q[0],
-  'yaml_module' => q[],
+  'yaml_module' => q[YAML::XS],
 };
 1;
 __END__
-
