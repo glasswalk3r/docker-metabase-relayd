@@ -79,7 +79,7 @@ anything on the container or image.
 
 Although not required, you can edit the `relayd` configuration file to match
 your needs. Refer to the `metabase-relayd` documentation for details. But,
-due the [known issues](#know issues), you probably will be better by using
+due the [known issues](#know-issues), you probably will be better by using
 this configuration sample:
 
 ```
@@ -101,7 +101,7 @@ At this moment (2022-02-17), metabase-relayd project is not in good shape.
 One of it's Perl modules dependencies is
 [POE::Component::SSLify](https://metacpan.org/pod/POE::Component::SSLify), which
 is not being updated for a long time and it is broken regarding newer versions
-of TLS.
+of OpenSSL.
 
 That said, metabase-relayd will not support TLS when connecting to
 metabase.cpantesters.org, so be sure to configure the `url` configuration
@@ -109,7 +109,7 @@ parameter to use `http` instead of `https`.
 
 This is not the ideal, but it will work. Although the data transferred is
 basically public, the issue lies in not being sure you are transferring test
-data to the right place.
+reports data to the right place.
 
 ## References
 
